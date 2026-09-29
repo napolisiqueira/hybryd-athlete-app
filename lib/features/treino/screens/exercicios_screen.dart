@@ -7,17 +7,10 @@ import 'dart:convert';
 class ExerciciosScreen extends StatelessWidget {
   ExerciciosScreen({super.key});
 
-  final List<Exercicio> exerciciosMock = [
-    Exercicio(nome: 'Supino Reto', grupoMuscular: 'Peito', equipamento: 'Barra'),
-    Exercicio(nome: 'Agachamento', grupoMuscular: 'Pernas', equipamento: 'Barra'),
-    Exercicio(nome: 'Puxada Alta', grupoMuscular: 'Costas', equipamento: 'Cabo'),
-    Exercicio(nome: 'Rosca Direta', grupoMuscular: 'Bíceps', equipamento: 'Halteres'),
-  ];
-
   @override
   Widget build(BuildContext context) {
 
-  Future<List> buscarExercicios() async {
+  Future<List<Exercicio>> buscarExercicios() async {
     final response = await http.get(
       Uri.parse('http://10.0.2.2:8000/exercicios/'),
       headers: {'Accept': 'application/json'},
